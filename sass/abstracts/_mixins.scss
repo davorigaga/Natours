@@ -1,0 +1,27 @@
+@mixin clearfix {
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin centralize{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*
+ORDER: Base typography > general layout + grid > page layout > components
+
+1em = 16px coming from the browser
+*/
+@mixin phone($fone){
+    @if $fone == phone {
+        @media (max-width: 37.5em) {@content}; }//600px
+    @if ($fone == tab-port) {@media (max-width: 56.25em) {@content};}//900px
+    @if ($fone == tab-land) {@media (max-width: 75em) {@content}; }//1200
+    @if ($fone == 'big-desk') {@media (min-width: 112.5em) {@content};} //1800
+}

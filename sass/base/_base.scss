@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    /* Resize all boxes not to add padding and width in calculations */
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+    @include phone(tab-land){
+        font-size: 56.25%;
+    }
+    @include phone(tab-port){
+        font-size: 50%;
+    }
+    @include phone(phone){
+        font-size:30%;
+    }
+    @include phone(big-desktop){
+        font-size: 75%;
+    }
+
+}
+
+
+/* Overwrite default font size and all  */
+body{
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include phone(tab-port){
+        padding: 0;
+    }
+}
